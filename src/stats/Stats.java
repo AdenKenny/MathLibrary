@@ -1,6 +1,5 @@
 package stats;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -61,7 +60,7 @@ public class Stats<V extends Number> {
 		return a < b ? true : false;
 	}
 	
-	   public double pearsons(List<? extends Number> x, List<? extends Number> y){
+	   public static double pearsons(List<? extends Number> x, List<? extends Number> y){
 	       
 		   	double sumX = 0;
 	        double sumY = 0;

@@ -6,7 +6,7 @@ public class Formula {
 
 	}
 
-	public double getPi() {
+	public static double getPi() {
 
 		double s = 0;
 		int n = 5000000; //Increase for more accuracy.

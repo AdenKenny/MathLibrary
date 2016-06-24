@@ -1,31 +1,31 @@
 package util;
 
-public class Pair<V> {
+public class Pair<V, V2> {
 
 	private V val1;
 	private V val2;
 
-	public Pair(Object val1, Object val2) {
+	public Pair(V val1, V val2) {
 		
-		this.val1 = (V) val1;
-		this.val2 = (V) val2;
+		this.val1 = val1;
+		this.val2 = val2;
 		
 	}
 	
 	public V getVal1() {
-		return val1;
+		return this.val1;
 	}
 	
 	public V getVal2() {
-		return val2;
+		return this.val2;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((val1 == null) ? 0 : val1.hashCode());
-		result = prime * result + ((val2 == null) ? 0 : val2.hashCode());
+		result = prime * result + ((this.val1 == null) ? 0 : this.val1.hashCode());
+		result = prime * result + ((this.val2 == null) ? 0 : this.val2.hashCode());
 		return result;
 	}
 
@@ -40,19 +40,19 @@ public class Pair<V> {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		Pair other = (Pair) obj;
-		if (val1 == null) {
+		Pair<?, ?> other = (Pair<?, ?>) obj;
+		if (this.val1 == null) {
 			if (other.val1 != null) {
 				return false;
 			}
-		} else if (!val1.equals(other.val1)) {
+		} else if (!this.val1.equals(other.val1)) {
 			return false;
 		}
-		if (val2 == null) {
+		if (this.val2 == null) {
 			if (other.val2 != null) {
 				return false;
 			}
-		} else if (!val2.equals(other.val2)) {
+		} else if (!this.val2.equals(other.val2)) {
 			return false;
 		}
 		return true;
@@ -60,7 +60,7 @@ public class Pair<V> {
 
 	@Override
 	public String toString() {
-		return "Pair [val1=" + val1 + ", val2=" + val2 + "]";
+		return "Pair [val1=" + this.val1 + ", val2=" + this.val2 + "]";
 	}
 	
 }

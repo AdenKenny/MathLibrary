@@ -6,7 +6,7 @@ import util.Pair;
 
 public class Bitwise {
 
-	public int bitAdd(int a, int b) {
+	public static int bitAdd(int a, int b) {
 
 		while (b != 0) {
 			int carry = (a & b);
@@ -18,7 +18,7 @@ public class Bitwise {
 
 	}
 
-	public int rBitAdd(int a, int b) {
+	public static int rBitAdd(int a, int b) {
 
 		if (b == 0) {
 			return a;
@@ -27,7 +27,7 @@ public class Bitwise {
 		return rBitAdd(a ^ b, (a & b) << 1);
 	}
 
-	public int bitSub(int a, int b) {
+	public static int bitSub(int a, int b) {
 
 		while (b != 0) {
 			int borrow = (~a) & b;
@@ -38,7 +38,7 @@ public class Bitwise {
 		return a;
 	}
 
-	public int rBitSub(int a, int b) {// Recursive bit substitution
+	public static int rBitSub(int a, int b) {// Recursive bit substitution
 
 		if (b == 0) {
 			return a;
@@ -47,19 +47,20 @@ public class Bitwise {
 		return rBitSub(a ^ b, (~a & b) << 1);
 	}
 
-	public float bitDiv(int a, int b) { // Divide b. Lookup table.
+	public static <V> float bitDiv(int a, int b) { // Divide b. Lookup table.
 
 		int temp = a;
-		Map<Integer, Pair> map = new LookupTable().returnTable(); // fill lookup
-																	// Table.
+		Map<Integer, Pair<?, ?>> map = LookupTable.returnTable(); // fill lookup table.
 
-		Pair lk = map.get(b);
+		Pair<?, ?> lk = map.get(b);
 
-		Object tmp = lk.getVal2();
+		@SuppressWarnings("unchecked")
+		V tmp = (V) lk.getVal2();
 
 		if (tmp.getClass().equals(Boolean.class)) {
 			return ((int) lk.getVal1() * a);
 		}
+		
 
 		int shiftVal = (int) lk.getVal1();
 		int numbShifts = (int) lk.getVal2();
@@ -77,10 +78,8 @@ public class Bitwise {
 		if (a > 0 && b > 0) {
 			return (a + b) >> 1;
 		}
-
-		else {
-			return 0;
-		}
+		
+		return 0;
 	}
 
 	public boolean isPowerOf2(int a) { // Doesn't work for 0.
@@ -92,13 +91,13 @@ public class Bitwise {
 		return ((a & (a - 1)) == 0);
 	}
 
-	public Pair XorSwap(int a, int b) {
+	public Pair<Integer, Integer> XorSwap(int a, int b) {
 
 		int l = ((a) ^= (b));
 		l = ((b) ^= (a));
 		l = ((a) ^= (b));
 
-		return new Pair(l, b);
+		return new Pair<>(l, b);
 
 	}
 
@@ -133,8 +132,6 @@ public class Bitwise {
 	
 	public float bitDivByShift(int a, int b) {
 
-		int q;
-		int r;
 		int l;
 
 		if (b == 3 || b == 5) {
@@ -153,6 +150,9 @@ public class Bitwise {
 			return 0;
 		}
 
+		int q; 
+		int r;
+		
 		a = a + (a >> 31 & 4); 
 		q = (a >> 1) + (a >> 2);
 		q = q + (q >> 4);

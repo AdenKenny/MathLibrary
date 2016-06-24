@@ -1,7 +1,6 @@
 package arith;
 
 import java.util.Map;
-
 import util.LookupTable;
 import util.Pair;
 

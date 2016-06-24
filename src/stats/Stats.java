@@ -85,7 +85,8 @@ public class Stats<V extends Number> {
 	        	double temp2 = y.get(i).doubleValue();
 	        	sumXY+= (temp1 * temp2);
 	        }
-	        return (sumXY - (((sumX) * (sumY)) / n)) / (Math.sqrt(((sumX2 - ((Math.pow(sumX, 2)) / n)) * (sumY2 - ((Math.pow(sumY, 2)) / n)))));
+	        return (sumXY - (((sumX) * (sumY)) / n)) / (Math.sqrt(((sumX2 - ((Math.pow(sumX, 2)) / n))
+	        * (sumY2 - ((Math.pow(sumY, 2)) / n)))));
 	    }
 	   
 	   

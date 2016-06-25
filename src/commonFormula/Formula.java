@@ -17,5 +17,21 @@ public class Formula {
 		
 		return s * 4;
 	}
+	
+	public static void fibb() {
+		
+	}
+	
+	public static <T extends Number> Number abs(T num) {
+		
+		double x = num.doubleValue();
+		
+		if(x < 0) {
+			x*=-1;
+		}
+		
+		Number t = x;
+		return t;
+	}
 
 }

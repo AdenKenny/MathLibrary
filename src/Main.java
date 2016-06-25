@@ -4,6 +4,8 @@ import commonFormula.Formula;
 
 public class Main {
 
+	private int sz = 12;
+	
 	public static void main(String[] args) {
 		Bitwise t = new Bitwise();
 		Formula f = new Formula();
@@ -15,6 +17,11 @@ public class Main {
 		
 		
 
+	}
+	
+	public void are() {
+		int sz = 11;
+		
 	}
 
 }

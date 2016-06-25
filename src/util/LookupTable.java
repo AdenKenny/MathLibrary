@@ -3,7 +3,7 @@ package util;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LookupTable<V> {
+public class LookupTable {
 	
 
 	public static Map<Integer, Pair<?, ?>> returnTable() {

@@ -73,7 +73,7 @@ public class Bitwise {
 
 	}
 
-	public float average(int a, int b) { // More accurate the larger the numbers
+	public static float average(int a, int b) { // More accurate the larger the numbers
 
 		if (a > 0 && b > 0) {
 			return (a + b) >> 1;
@@ -82,7 +82,7 @@ public class Bitwise {
 		return 0;
 	}
 
-	public boolean isPowerOf2(int a) { // Doesn't work for 0.
+	public static boolean isPowerOf2(int a) { // Doesn't work for 0.
 
 		// if(a == 0) { //This slows us down
 		// return false;
@@ -91,7 +91,7 @@ public class Bitwise {
 		return ((a & (a - 1)) == 0);
 	}
 
-	public Pair<Integer, Integer> XorSwap(int a, int b) {
+	public static Pair<Integer, Integer> XorSwap(int a, int b) {
 
 		int l = ((a) ^= (b));
 		l = ((b) ^= (a));
@@ -101,7 +101,7 @@ public class Bitwise {
 
 	}
 
-	public float bitMult(int a, int b) {
+	public static float bitMult(int a, int b) {
 
 		int c = 0;
 		
@@ -130,7 +130,7 @@ public class Bitwise {
 	}
 
 	
-	public float bitDivByShift(int a, int b) {
+	public static float bitDivByShift(int a, int b) {
 
 		int l;
 

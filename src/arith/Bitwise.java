@@ -1,6 +1,7 @@
 package arith;
 
 import java.util.Map;
+
 import util.LookupTable;
 import util.Pair;
 
@@ -97,7 +98,7 @@ public class Bitwise {
 		l = ((b) ^= (a));
 		l = ((a) ^= (b));
 
-		return new Pair<>(l, b);
+		return (new Pair<>(l, b));
 
 	}
 

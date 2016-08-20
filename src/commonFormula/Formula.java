@@ -27,11 +27,10 @@ public class Formula {
 		double x = num.doubleValue();
 		
 		if(x < 0) {
-			x*=-1;
+			return x*=-1;
 		}
 		
-		Number t = x;
-		return t;
+		return x * 1;
 	}
 
 }

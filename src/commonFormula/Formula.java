@@ -32,5 +32,24 @@ public class Formula {
 		
 		return x * 1;
 	}
+	
+	public static <T extends Number> Number square(T num) {
+		double x = num.doubleValue();
+		
+		return x * x;
+	}
+	
+	public static <T extends Number> Number pow(T num, T pow) {
+		
+		double x = num.doubleValue();
+		double a = (pow.doubleValue()) - 1;
+		double s = num.doubleValue();
+		
+		for(int i = 0; i < a; i++) {
+			s *= x;
+		}
+		
+		return s;
+	}
 
 }

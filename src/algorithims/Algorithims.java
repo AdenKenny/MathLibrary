@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class Algorithims {
 
-	private static int ak(int m, int n) { // Ackerman's recursive.
+	public static int ak(int m, int n) { // Ackerman's recursive.
 
 		if (m == 0) {
 			return n + 1;
@@ -20,7 +20,7 @@ public class Algorithims {
 
 	}
 
-	private static int a(int m, int n) { // Ackerman's iterative.
+	public static int a(int m, int n) { // Ackerman's iterative.
 		Stack<Integer> sm = new Stack<>();
 		sm.push(m);
 		while (sm.size() != 1 || sm.peek() != 0) {

@@ -33,7 +33,7 @@ public class Formula {
 		return x * 1;
 	}
 	
-	public static <T extends Number> Number square(T num) {
+	public static <T extends Number> Number square(Number num) {
 		double x = num.doubleValue();
 		
 		return x * x;
@@ -51,5 +51,20 @@ public class Formula {
 		
 		return s;
 	}
+	
+	public static boolean isWhole(Number s) {
+		
+		if(s instanceof Integer) {
+			return true;
+		}
+		
+		if(s.intValue() == s.doubleValue()) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	
 
 }

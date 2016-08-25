@@ -72,18 +72,21 @@ public class Stats<V extends Number> {
 	        	sumX+= temp;
 	        	sumX2+= Math.pow(temp, 2);
 	        }
+	        
 	        for(Number yi: y) { 
 	        	double temp = yi.doubleValue();
 	        	sumY+= temp;
 	        	sumX2+=Math.pow(temp, 2);
 	        }
+	        
 	        double sumXY = 0;
 	        int n = x.size();
-	        for(int i = 0; i < n; i++){
+	        for(int i = 0; i < n; i++) {
 	        	double temp1 = x.get(i).doubleValue();
 	        	double temp2 = y.get(i).doubleValue();
 	        	sumXY+= (temp1 * temp2);
 	        }
+	        
 	        return (sumXY - (((sumX) * (sumY)) / n)) / (Math.sqrt(((sumX2 - ((Math.pow(sumX, 2)) / n))
 	        * (sumY2 - ((Math.pow(sumY, 2)) / n)))));
 	    }

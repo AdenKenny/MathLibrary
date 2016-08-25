@@ -87,4 +87,29 @@ public class Vectors {
 		return vec;
 	}
 	
+	public static Number dotProduct(Number[] vec1, Number[] vec2, Number theta) {
+		
+		if(vec1.length != vec2.length) {
+			throw new ArithmeticException("You cannot mutiply two vectors with unequal dimensions");
+		}
+		
+		return vectorLength(vec2).doubleValue() * vectorLength(vec2).doubleValue() * Math.cos(theta.doubleValue());
+	}
+	
+	public static Number dotProduct(Number[] vec1, Number[] vec2) {
+		
+		if(vec1.length != vec2.length) {
+			throw new ArithmeticException("You cannot mutiply two vectors with unequal dimensions");
+		}
+		
+		double product = 0;
+		
+		int len = vec1.length;
+		for(int i = 0; i < len; i++) {
+			product+= vec1[i].doubleValue() * vec2[i].doubleValue();
+		}
+		
+		return product;
+	}
+	
 }

@@ -50,4 +50,41 @@ public class Vectors {
 		return toReturn;
 	}
 	
+	public static Number vectorLength(Number[] vec) {
+		
+		int total = 0;
+		
+		int len = vec.length;
+		for(int i = 0; i < len; i++) {
+			total+= (vec[i].doubleValue() * vec[i].doubleValue());
+		}
+		
+		return Math.sqrt(total);
+	}
+	
+	public static Number[] unitVec(Number[] vec) {
+		
+		double length = vectorLength(vec).doubleValue();
+		int len = vec.length;
+
+		Number[] unit = new Number[len];
+	
+		for(int i = 0; i < len; i++) {
+			double temp = vec[i].doubleValue();
+			unit[i] = (temp / length);
+		}
+		
+		return unit;
+	}
+	
+	public static Number[] scalarMult(Number[] vec, Number r) {
+		
+		int len = vec.length;
+		for(int i = 0; i < len; i++) {
+			vec[i] = vec[i].doubleValue() * r.doubleValue();
+		}
+		
+		return vec;
+	}
+	
 }

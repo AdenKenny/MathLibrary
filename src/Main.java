@@ -7,7 +7,7 @@ public class Main {
 
 	public static void main(String[] args) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		
-		BasicMath b = new BasicMath();
+		/*BasicMath b = new BasicMath();
 		
 		Class<?> c = b.getClass();
 		
@@ -16,18 +16,36 @@ public class Main {
 		Method m = c.getDeclaredMethod("intAdd", cArgs);
 		m.setAccessible(true);
 		
-		int val = (int) m.invoke(b, 13, 10);
-		System.out.println(val);
+		Number val = (Number) m.invoke(b, 13, 10);
+		int ret = val.intValue();
+		System.out.println(val);*/
 		
-
-		Class<?>[] arrgs = {Number.class, Number.class};
-		Method a = c.getDeclaredMethod("recSub", arrgs);
-		a.setAccessible(true);
+		BasicMath b = new BasicMath();
 		
-		double value = (double) a.invoke(b, 15, 5);
+		Class<?> c = b.getClass();
 		
-		System.out.println(value);
-	
+		Method[] methods = c.getDeclaredMethods();
+		
+		for(Method m : methods) {
+			if(m.getName().equals("intAdd")) {
+				Class<?>[] paramTypes = m.getParameterTypes();
+				
+				Class<?>[] cArgs = new Class<?>[paramTypes.length];
+				
+				for(int i = 0; i < paramTypes.length; i++) {
+					cArgs[i] = paramTypes[i];
+				}
+				
+				String methodName = m.getName();
+				
+				Method method = c.getDeclaredMethod(methodName, cArgs);
+				
+				Number val = (Number) m.invoke(b, 12, 10);
+				System.out.println(val.intValue());
+			}	
+		}
+		
+		//Handle method not found.
 	}
 	
 }

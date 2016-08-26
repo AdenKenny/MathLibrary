@@ -1,5 +1,6 @@
 package arith;
 
+@SuppressWarnings("unused")
 public class BasicMath {
 
 	
@@ -63,6 +64,54 @@ public class BasicMath {
 	public static double doubleDivide(double a, double b) {
 		
 		return a / b;
+	}
+	
+	private static Number recAdd(Number a, Number b) {
+		double s = a.doubleValue();
+		double r = b.doubleValue();
+		
+		try {
+			
+			
+			if(s == 0) {
+				return r;
+			}
+			
+			else if(r == 0) {
+				return s;
+			}
+			
+			return recAdd(s + 1, r - 1);
+		}
+		
+		catch(StackOverflowError e){
+			return r + s;
+		}
+		
+	}
+	
+	private static Number recSub(Number a, Number b) {
+		
+		double s = a.doubleValue();
+		double r = b.doubleValue();
+		
+		try {
+			
+			if(s == 0) {
+				return r;
+			}
+			
+			else if(r == 0) {
+				return s;
+			}
+			
+			return recSub(s - 1, r - 1);
+		}
+		
+		catch(StackOverflowError e) {
+			return r - s;
+		}
+		
 	}
 	
 }

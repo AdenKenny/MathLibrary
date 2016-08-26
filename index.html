@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Math Library by AdenKenny</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Math Library</h1>
+      <h2 class="project-tagline">All the greatest and most efficient ways of doing math!</h2>
+      <a href="https://github.com/AdenKenny/MathLibrary" class="btn">View on GitHub</a>
+      <a href="https://github.com/AdenKenny/MathLibrary/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/AdenKenny/MathLibrary/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h3>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Introduction</h3>
+
+<p>This library provides math functionality that was sorely lacking from the standard Java libraries. The implemented methods are fast, efficient, safe and extremely accurate!</p>
+
+<h3>
+<a id="advantages" class="anchor" href="#advantages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Advantages</h3>
+
+<ul>
+<li><p>A wide range of methods from basic addition (Both bitwise and recursive) to calculating unit vectors.</p></li>
+<li><p>All methods are private and are therefore very safe! This means you must access them through reflection.</p></li>
+<li><p>Excellent documentation meaning you'll never be confused.</p></li>
+<li><p>Well designed utility classes such as a 'Vector' class to represent n-dimensional vectors.</p></li>
+<li><p>A very well engineered structure using the greatest tool known to mankind ... UML.</p></li>
+</ul>
+
+<h3>
+<a id="disadvantages" class="anchor" href="#disadvantages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Disadvantages</h3>
+
+<ul>
+<li>None.</li>
+</ul>
+
+<h3>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h3>
+
+<p>A user wishes to add two numbers together. Using the standard Java library you would have to go through the large effort of writing code such as this...</p>
+
+<pre><code>//We want to add two integers a and b.
+//int result = a + b;
+</code></pre>
+
+<p>Code such as this is too complicated and unsafe for everyday use. A user cannot even see the method that is adding their two numbers together. This means that we cannot be sure that for all situations that this will return a correct result. </p>
+
+<p>Using MathLibrary a user could simply use the recursive addition method called 'recAdd' to add two numbers together. With the genius solution of using the 'Number' wrapper class for parameter types in all methods a user does not need to worry about type issues or precision loss as the library will handle it all for you. </p>
+
+<pre><code>private static Number recAdd(Number a, Number b) {
+   double s = a.doubleValue();
+   double r = b.doubleValue();
+
+   try {
+          if(s == 0) {
+                 return r;
+          }
+
+          else if(r == 0) {
+                 return s;
+          }
+
+          return recAdd(s + 1, r - 1);
+   }
+
+   catch(StackOverflowError e) {
+          return r + s;
+   }
+}
+</code></pre>
+
+<p>A user can then access this method like so. Note that reflection is required as for additional safety as all methods are private.</p>
+
+<pre><code>private int doArith(int a, int b, String op) {
+   BasicMath lib = new BasicMath();
+
+   Class&lt;?&gt; class = b.getClass();
+
+   Method[] methods = class.getDeclaredMethods();
+
+   for(Method m : methods) {
+          if(m.getName().equals(op) {
+                 Class&lt;?&gt; paramTypes = m.getParameterTypes();
+
+                 Class&lt;?&gt; cArgs = new Class&lt;?&gt;[paramTypes.length];
+
+                 for(int i = 0; i &lt; paramTypes.length; i++) {
+                        cArgs[i] = paramTypes[i];
+                 }
+
+                 String methodName = m.getName();
+
+                 Method method = class.getDeclaredMethod(methodName, cArgs);
+
+                 Number val = (Number) method.invoke(lib, a, b);
+
+                 return val.intValue();
+   }
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/AdenKenny/MathLibrary">Math Library</a> is maintained by <a href="https://github.com/AdenKenny">AdenKenny</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>

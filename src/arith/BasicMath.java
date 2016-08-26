@@ -3,7 +3,6 @@ package arith;
 @SuppressWarnings("unused")
 public class BasicMath {
 
-	
 	public static int intAdd(int a, int b) {
 		
 		return a + b;

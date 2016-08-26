@@ -19,7 +19,7 @@ public class Bitwise {
 
 	}
 
-	public static int rBitAdd(int a, int b) {
+	private static int rBitAdd(int a, int b) {
 
 		if (b == 0) {
 			return a;
@@ -39,7 +39,7 @@ public class Bitwise {
 		return a;
 	}
 
-	public static int rBitSub(int a, int b) {// Recursive bit substitution
+	private static int rBitSub(int a, int b) {// Recursive bit substitution
 
 		if (b == 0) {
 			return a;

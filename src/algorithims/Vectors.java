@@ -70,8 +70,7 @@ public class Vectors {
 		Number[] unit = new Number[len];
 	
 		for(int i = 0; i < len; i++) {
-			double temp = vec[i].doubleValue();
-			unit[i] = (temp / length);
+			unit[i] = (vec[i].doubleValue() / length);
 		}
 		
 		return unit;

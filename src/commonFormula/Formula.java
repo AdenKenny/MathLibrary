@@ -6,7 +6,7 @@ public class Formula {
 
 	}
 
-	public static double getPi() {
+	private static double getPi() {
 
 		double s = 0;
 		int n = 5000000; //Increase for more accuracy.
@@ -52,7 +52,7 @@ public class Formula {
 		return s;
 	}
 	
-	public static boolean isWhole(Number s) {
+	private static boolean isWhole(Number s) {
 		
 		if(s instanceof Integer) {
 			return true;

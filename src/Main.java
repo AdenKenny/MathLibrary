@@ -40,7 +40,7 @@ public class Main {
 				
 				Method method = c.getDeclaredMethod(methodName, cArgs);
 				
-				Number val = (Number) m.invoke(b, 12, 10);
+				Number val = (Number) method.invoke(b, 12, 10);
 				System.out.println(val.intValue());
 			}	
 		}

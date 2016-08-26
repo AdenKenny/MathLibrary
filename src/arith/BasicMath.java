@@ -83,7 +83,7 @@ public class BasicMath {
 			return recAdd(s + 1, r - 1);
 		}
 		
-		catch(StackOverflowError e){
+		catch(StackOverflowError e) {
 			return r + s;
 		}
 		

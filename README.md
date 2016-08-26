@@ -2,17 +2,32 @@
 
 This is a joke project. It's purposefully bad.
 
-    //Add 13 and 10.
-    private int add() {
-        BasicMath b = new BasicMath();
+    //Add a and b.
+    //a = 12, b = 30, op = "intAdd"
+    private int doArith(int a, int b, String op) {
+        ArithLib lib = new ArithLib();
         
-        Class<?> c = b.getClass();
+        Class<?> libClass = lib.getClass();
         
-        Class<?>[] cArgs = {int.class, int.class};
+        Method[] methods = c.getDeclaredMethods();
         
-        Method m = c.getDeclaredMethod("intAdd", cArgs);
-        m.setAccessible(true);
-        
-        return (int) m.invoke(b, 13, 10);
+        for(Method m : methods) {
+            if(m.getName.equals(op)) {
+                Class<?>[] paramTypes = m.getParameterTypes();
+                
+                Class<?> cArgs = new Class<?>[paramTypes.length];
+                
+                for(int i = 0; i < paramTypes.length; i++) {
+                    cArgs[i] = paramTypes[i];
+                }
+                
+                String methodName = m.getName();
+                
+                Method method = c.getDeclaredMethod(methodName, cArgs);
+                
+                Number val = (Number) m.invoke(lib, a, b);
+                return val.intValue();
+            }
+        }
     }
 

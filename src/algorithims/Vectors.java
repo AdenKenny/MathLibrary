@@ -76,11 +76,11 @@ public class Vectors {
 		return unit;
 	}
 	
-	public static Number[] scalarMult(Number[] vec, Number r) {
+	public static Number[] scalarMult(Number[] vec, Number scalar) {
 		
 		int len = vec.length;
 		for(int i = 0; i < len; i++) {
-			vec[i] = vec[i].doubleValue() * r.doubleValue();
+			vec[i] = vec[i].doubleValue() * scalar.doubleValue();
 		}
 		
 		return vec;
